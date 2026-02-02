@@ -29,7 +29,7 @@ export const experiences: ExperienceItem[] = [
     id: 1,
     title: "Frontend Developer",
     company: "DNSE Securities JSC",
-    period: "August 2025 - Present",
+    period: "August 2025 - February 2026",
     current: true,
   },
   {

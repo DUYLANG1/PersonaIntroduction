@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { AnimationLottie } from "../common/animation-lottie";
 
@@ -46,22 +45,22 @@ export function HeaderSection() {
               </span>
             </div>
             <div className="flex flex-wrap gap-3 md:gap-4 pt-2 max-w-2xl mx-auto md:mx-0">
-              <Link
+              <a
                 href="#experience"
                 className="flex-1 min-w-[140px] px-6 py-3 md:px-8 md:py-4 rounded-2xl btn-primary-enhanced font-bold text-base md:text-lg tracking-wide text-center hover:scale-105 transition-transform duration-300 flex items-center justify-center"
               >
                 Experience
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#contact"
                 className="flex-1 min-w-[140px] px-6 py-3 md:px-8 md:py-4 rounded-2xl glass font-semibold text-base md:text-lg hover:text-primary transition-all duration-300 hover:scale-105 hover:shadow-lg border-animated group text-center flex items-center justify-center"
               >
                 <span className="relative z-10 group-hover:gradient-text-primary">
                   Contact Me
                 </span>
-              </Link>
+              </a>
               <a
-                href="https://www.topcv.vn/xem-cv/UQZQBgAFClBUUVACA1AEC1AAAVNTCglTUlJbAQ3b8b"
+                href="https://drive.google.com/file/d/1C2g0wXwLXvuSVG4QlumO9ebSEmn8e6_R/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 min-w-[140px] px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-secondary/50 backdrop-blur-sm border border-secondary/20 font-semibold text-base md:text-lg hover:bg-secondary/80 transition-all duration-300 hover:scale-105 text-center flex items-center justify-center"

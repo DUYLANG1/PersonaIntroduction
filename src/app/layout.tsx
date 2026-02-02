@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { FooterSection } from "@/components/sections/footer-section";
-import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://duylang.dev"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://duylang.dev",
   ),
   title: "DUYLANG - Full Stack Developer Portfolio",
   description:
@@ -73,29 +73,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get("theme")?.value;
+
   return (
-    <html lang="en">
+    <html lang="en" className={theme === "dark" ? "dark" : ""}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ScrollProgress />
         {children}
         <FooterSection />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{
-                    const s=localStorage.getItem('theme');
-                    const d=document.documentElement;
-                    if(s==='dark') 
-                    d.classList.add('dark');
-                  } catch(e){}`,
-          }}
-        />
       </body>
     </html>
   );

@@ -16,18 +16,14 @@ export function Navigation() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const shouldBeDark = stored === "dark";
-
-    setIsDark(shouldBeDark);
-    document.documentElement.classList.toggle("dark", shouldBeDark);
+    setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
     document.documentElement.classList.toggle("dark", newTheme);
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    document.cookie = `theme=${newTheme ? "dark" : "light"};path=/;max-age=31536000;SameSite=Lax`;
   };
 
   useEffect(() => {
@@ -35,10 +31,19 @@ export function Navigation() {
   }, [pathname]);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -120,6 +125,8 @@ export function Navigation() {
             <button
               className="md:hidden p-2.5 rounded-xl hover:bg-white/10 transition-all duration-300"
               onClick={() => setIsNavigating(!isNavigating)}
+              aria-label={isNavigating ? "Close menu" : "Open menu"}
+              aria-expanded={isNavigating}
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
                 <span
