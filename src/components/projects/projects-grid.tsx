@@ -1,10 +1,10 @@
 "use client";
 import { projects } from "@/lib/data";
-import { GlowCard } from "@/components/ui/glow-card";
+import { GlowCard } from "@/components/common/glow-card";
 import { ExternalLink, X } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/common/badge";
 import { Navigation } from "@/components/layout/navigation";
-import { PageHeader } from "@/app/projects/components/projects-header";
+import { ProjectsHeader } from "@/components/projects/projects-header";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -41,7 +41,7 @@ export function ProjectsGrid() {
       <Navigation />
       <main className="relative pt-32 pb-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <PageHeader
+          <ProjectsHeader
             title="All Projects"
             description="A curated selection of things I've built, experimented with, and shipped. Each project represents a journey of learning and creativity."
             lottieIcon="/assets/lottie/projects.json"
@@ -57,8 +57,8 @@ export function ProjectsGrid() {
               projects.length === 1
                 ? "grid-cols-1 max-w-xl mx-auto"
                 : projects.length === 2
-                ? "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
-                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                  ? "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
+                  : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
             )}
           >
             {projects.map((project, index) => (

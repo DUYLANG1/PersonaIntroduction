@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { education } from "@/lib/data";
-import { GlowCard } from "@/components/ui/glow-card";
+import { GlowCard } from "@/components/common/glow-card";
 import { GraduationCap } from "lucide-react";
 import { AnimationLottie } from "@/components/common/animation-lottie";
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 
 export function EducationSection() {
   return (

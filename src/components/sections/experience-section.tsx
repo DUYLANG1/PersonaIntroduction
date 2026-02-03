@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { experiences } from "@/lib/data";
 import { Briefcase } from "lucide-react";
 import { AnimationLottie } from "@/components/common/animation-lottie";
-import { GlowCard } from "../ui/glow-card";
+import { GlowCard } from "../common/glow-card";
 
-import { SectionHeader } from "../ui/section-header";
+import { SectionHeader } from "../common/section-header";
 
 export function ExperienceSection() {
   return (

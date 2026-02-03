@@ -8,8 +8,18 @@ import { Moon, Sun, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const SECTIONS = [
+  "hero",
+  "experience",
+  "skills",
+  "education",
+  "contact",
+] as const;
+type SectionId = (typeof SECTIONS)[number];
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const pathname = usePathname();
   const [isNavigating, setIsNavigating] = useState(false);
   const router = useRouter();
@@ -28,6 +38,33 @@ export function Navigation() {
 
   useEffect(() => {
     setIsNavigating(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const observers: IntersectionObserver[] = [];
+
+    SECTIONS.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(sectionId);
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
+      );
+
+      observer.observe(element);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
   }, [pathname]);
 
   useEffect(() => {
@@ -55,6 +92,11 @@ export function Navigation() {
     }
   };
 
+  const scrollToSection = (sectionId: SectionId) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -66,7 +108,15 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex gap-4 items-center">
-            <Link href="/">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="font-bold text-2xl cursor-pointer px-2 py-1 flex items-center gradient-text-primary tracking-tight"
@@ -106,6 +156,37 @@ export function Navigation() {
                 )}
               </button>
             </div>
+
+            {pathname === "/" && (
+              <div className="hidden lg:flex gap-0.5 bg-background/30 p-1 rounded-xl border border-white/5 backdrop-blur-sm">
+                {(
+                  ["experience", "skills", "education", "contact"] as const
+                ).map((section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className={`relative px-3 py-1.5 rounded-lg text-sm transition-all duration-300 capitalize ${
+                      activeSection === section
+                        ? "text-foreground font-medium"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {activeSection === section && (
+                      <motion.span
+                        layoutId="activeSection"
+                        className="absolute inset-0 bg-gradient-primary/20 rounded-lg"
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.6,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{section}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex items-center gap-4">

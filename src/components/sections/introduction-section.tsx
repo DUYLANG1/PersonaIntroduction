@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 import { User } from "lucide-react";
 
 export function IntroductionSection() {

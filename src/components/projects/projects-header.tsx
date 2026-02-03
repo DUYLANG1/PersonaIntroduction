@@ -15,7 +15,7 @@ interface PageHeaderProps {
   };
 }
 
-export function PageHeader({
+export function ProjectsHeader({
   title,
   description,
   lottieIcon,

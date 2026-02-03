@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Dumbbell, Globe2, Heart } from "lucide-react";
 import { AnimationLottie } from "../common/animation-lottie";
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 
 const hobbies = [
   {

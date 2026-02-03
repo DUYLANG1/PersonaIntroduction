@@ -196,31 +196,43 @@ html {
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 15% 50%,
-        hsl(var(--primary) / 0.08) 0%,
-        transparent 40%),
-      radial-gradient(circle at 85% 30%,
-        hsl(var(--accent) / 0.08) 0%,
-        transparent 40%);
-    pointer-events: none;
-    z-index: -1;
-  }
+  /* Remove old static gradient - replaced by animated-bg component */
 
   html {
     scroll-behavior: smooth;
   }
+
+  /* Typography polish */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Scroll margin for anchor links with fixed nav */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
 }
+
+/* ============================================
+   UTILITY CLASSES
+   Grouped by visual effect and purpose
+   ============================================ */
 
 @layer utilities {
 
-  /* Gradient Text Effects */
+  /* ============================================
+     GRADIENT TEXT EFFECTS
+     Apply gradient colors to text elements
+     ============================================ */
   .gradient-text-primary {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -242,7 +254,10 @@ html {
     background-clip: text;
   }
 
-  /* Gradient Backgrounds */
+  /* ============================================
+     GRADIENT BACKGROUNDS
+     Solid gradient background fills
+     ============================================ */
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
@@ -255,7 +270,10 @@ html {
     background: var(--gradient-accent);
   }
 
-  /* Glow Effects */
+  /* ============================================
+     GLOW EFFECTS
+     Box-shadow based glow for emphasis
+     ============================================ */
   .glow-primary {
     box-shadow: var(--glow-primary);
   }
@@ -264,7 +282,10 @@ html {
     box-shadow: var(--glow-secondary);
   }
 
-  /* Enhanced Card Styles */
+  /* ============================================
+     CARD EFFECTS
+     Enhanced card styling with hover states
+     ============================================ */
   .card-enhanced {
     background: linear-gradient(145deg,
         hsl(var(--card) / 0.6),
@@ -283,7 +304,31 @@ html {
         hsl(var(--card) / 0.6));
   }
 
-  /* Animated Borders */
+  .card-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d-inner {
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d:hover .card-3d-inner {
+    transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  }
+
+  /* ============================================
+     GLASSMORPHISM & BORDERS
+     Frosted glass and animated border effects
+     ============================================ */
+  .glass {
+    background: hsl(var(--background) / 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
   .border-animated {
     position: relative;
     overflow: hidden;
@@ -302,15 +347,10 @@ html {
     opacity: 0.7;
   }
 
-  /* Glassmorphism Effect */
-  .glass {
-    background: hsl(var(--background) / 0.7);
-    backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--border) / 0.4);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Enhanced Button Styles */
+  /* ============================================
+     BUTTON EFFECTS
+     Enhanced button with shimmer animation
+     ============================================ */
   .btn-primary-enhanced {
     background: var(--gradient-primary);
     color: hsl(var(--primary-foreground));
@@ -342,5 +382,39 @@ html {
 
   .btn-primary-enhanced:hover::before {
     left: 100%;
+  }
+
+  /* ============================================
+     INTERACTIVE EFFECTS
+     Touch optimization and spotlight effects
+     ============================================ */
+  .touch-optimize {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle,
+        oklch(0.7 0.18 270 / 0.15) 0%,
+        transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .spotlight-card:hover::before {
+    opacity: 1;
   }
 }

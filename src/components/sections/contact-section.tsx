@@ -1,10 +1,10 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/common/badge";
 import { motion } from "framer-motion";
 import { AnimationLottie } from "@/components/common/animation-lottie";
 import { MapPin, Send } from "lucide-react";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 import {
   GitHubIcon,
   LinkedInIcon,

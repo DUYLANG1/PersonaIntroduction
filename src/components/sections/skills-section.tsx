@@ -5,7 +5,7 @@ import { AnimationLottie } from "../common/animation-lottie";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 
 interface Skill {
   name: string;
@@ -38,7 +38,10 @@ const getSkillIcon = (iconFile: string) => `/assets/skillsSvg/${iconFile}`;
 
 export function SkillsSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 bg-muted/30 overflow-hidden">
+    <section
+      id="skills"
+      className="py-12 md:py-16 lg:py-20 px-4 bg-muted/30 overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
