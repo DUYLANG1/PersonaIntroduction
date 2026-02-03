@@ -1,7 +1,20 @@
 "use client";
 
-import { TypeAnimation } from "react-type-animation";
-import { AnimationLottie } from "../common/animation-lottie";
+import dynamic from "next/dynamic";
+import { AnimationLottie } from "../common/animation-lottie-lazy";
+
+const TypeAnimation = dynamic(
+  () =>
+    import("react-type-animation").then((m) => ({ default: m.TypeAnimation })),
+  {
+    ssr: false,
+    loading: () => (
+      <span className="gradient-text-secondary font-semibold">
+        Full Stack Developer
+      </span>
+    ),
+  },
+);
 
 export function HeaderSection() {
   return (
@@ -27,7 +40,7 @@ export function HeaderSection() {
             <div className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light min-h-[80px] md:min-h-[100px]">
               <TypeAnimation
                 sequence={[
-                  "MERN Stack Developer",
+                  "Full Stack Developer",
                   2000,
                   "Software Developer",
                   2000,

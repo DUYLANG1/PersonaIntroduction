@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { education } from "@/lib/data";
 import { GlowCard } from "@/components/common/glow-card";
 import { GraduationCap } from "lucide-react";
-import { AnimationLottie } from "@/components/common/animation-lottie";
+import { AnimationLottie } from "@/components/common/animation-lottie-lazy";
 
 import { SectionHeader } from "@/components/common/section-header";
 

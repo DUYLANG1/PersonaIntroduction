@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/common/badge";
 import { motion } from "framer-motion";
-import { AnimationLottie } from "@/components/common/animation-lottie";
+import { AnimationLottie } from "@/components/common/animation-lottie-lazy";
 import { MapPin, Send } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
 import {

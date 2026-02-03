@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { BookOpen, Dumbbell, Globe2, Heart } from "lucide-react";
-import { AnimationLottie } from "../common/animation-lottie";
+import { AnimationLottie } from "../common/animation-lottie-lazy";
 
 import { SectionHeader } from "@/components/common/section-header";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AnimationLottie } from "../common/animation-lottie";
+import { AnimationLottie } from "../common/animation-lottie-lazy";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 

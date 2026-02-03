@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AnimationLottie } from "@/components/common/animation-lottie";
+import { AnimationLottie } from "@/components/common/animation-lottie-lazy";
 import { Calendar } from "lucide-react";
 
 interface PageHeaderProps {
