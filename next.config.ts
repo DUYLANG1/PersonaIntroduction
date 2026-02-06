@@ -4,14 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     optimizePackageImports: [
-      "framer-motion",
       "lucide-react",
-      "react-fast-marquee",
+      "lottie-react",
       "react-type-animation",
-      "@radix-ui/react-avatar",
-      "@radix-ui/react-icons",
-      "@radix-ui/react-separator",
-      "@radix-ui/react-slot",
     ],
   },
   reactCompiler: true,

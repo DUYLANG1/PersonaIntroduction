@@ -1,6 +1,5 @@
 "use client";
 import Lottie from "lottie-react";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface AnimationLottieProps {
@@ -28,15 +27,8 @@ export function AnimationLottie({
   if (!animationData) return null;
 
   return (
-    <motion.div
-      initial={{ scale: 0.9, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className={className}
-      style={{ width }}
-    >
+    <div className={className} style={{ width }}>
       <Lottie animationData={animationData} loop={loop} />
-    </motion.div>
+    </div>
   );
 }

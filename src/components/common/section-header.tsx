@@ -1,5 +1,3 @@
-"use client";
-
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -22,22 +20,22 @@ export function SectionHeader({
     align === "center"
       ? "items-center text-center"
       : align === "left"
-      ? "items-start text-left"
-      : "items-center md:items-start text-center md:text-left";
+        ? "items-start text-left"
+        : "items-center md:items-start text-center md:text-left";
 
   const justifyClass =
     align === "center"
       ? "justify-center"
       : align === "left"
-      ? "justify-start"
-      : "justify-center md:justify-start";
+        ? "justify-start"
+        : "justify-center md:justify-start";
 
   const flexColClass =
     align === "center"
       ? "items-center"
       : align === "left"
-      ? "items-start"
-      : "items-center md:items-start";
+        ? "items-start"
+        : "items-center md:items-start";
 
   return (
     <div className={cn("mb-12 md:mb-16", alignmentClass, className)}>
@@ -56,7 +54,7 @@ export function SectionHeader({
         <p
           className={cn(
             "text-sm md:text-base text-muted-foreground max-w-2xl",
-            align === "center" ? "mx-auto" : ""
+            align === "center" ? "mx-auto" : "",
           )}
         >
           {description}

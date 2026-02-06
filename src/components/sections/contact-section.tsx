@@ -1,10 +1,8 @@
-"use client";
-
 import { Badge } from "@/components/common/badge";
-import { motion } from "framer-motion";
 import { AnimationLottie } from "@/components/common/animation-lottie-lazy";
 import { MapPin, Send } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
+import { AnimateIn } from "@/components/common/animate-in";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -39,30 +37,19 @@ export function ContactSection() {
       className="py-12 md:py-20 lg:py-20 bg-linear-to-b from-background via-muted/30 to-background scroll-mt-32"
     >
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <AnimateIn>
           <SectionHeader
             title="Get In Touch"
             icon={Send}
             description="I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to work together!"
             className="lg:mb-20"
           />
-        </motion.div>
+        </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {socialLinks.map((link, index) => {
             const IconComponent = link.icon;
             return (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
+              <AnimateIn key={link.name} delay={index * 100}>
                 <a
                   href={link.url}
                   target="_blank"
@@ -85,7 +72,7 @@ export function ContactSection() {
                     </div>
                   </div>
                 </a>
-              </motion.div>
+              </AnimateIn>
             );
           })}
         </div>
@@ -98,25 +85,20 @@ export function ContactSection() {
             <MapPin className="h-4 w-4 mr-2 gradient-text-accent" />
             <span className="gradient-text-primary font-medium">Vietnam</span>
           </Badge>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="w-full md:w-105 order-1 md:order-2"
-          >
+          <AnimateIn animation="scale-in">
             <a
               href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRpccpFVcKfsBmqQGcxNvVwSMsPdLfhHfpzfHpGzvvMxCccrMJBlWMdcvLSWSBrvmRQPrlq"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Compose Email"
+              className="w-full md:w-105 order-1 md:order-2 block"
             >
               <AnimationLottie
                 src="/assets/lottie/contact.json"
                 className="mx-auto"
               />
             </a>
-          </motion.div>
+          </AnimateIn>
         </div>
       </div>
     </section>

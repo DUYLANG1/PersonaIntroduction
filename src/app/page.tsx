@@ -1,56 +1,12 @@
-import dynamic from "next/dynamic";
 import { Navigation } from "@/components/layout/navigation";
 import { HeaderSection } from "@/components/sections/header-section";
-
-const IntroductionSection = dynamic(
-  () =>
-    import("@/components/sections/introduction-section").then((m) => ({
-      default: m.IntroductionSection,
-    })),
-  { ssr: true },
-);
-const CodeProfileSection = dynamic(
-  () =>
-    import("@/components/sections/code-profile-section").then((m) => ({
-      default: m.CodeProfileSection,
-    })),
-  { ssr: true },
-);
-const ExperienceSection = dynamic(
-  () =>
-    import("@/components/sections/experience-section").then((m) => ({
-      default: m.ExperienceSection,
-    })),
-  { ssr: true },
-);
-const SkillsSection = dynamic(
-  () =>
-    import("@/components/sections/skills-section").then((m) => ({
-      default: m.SkillsSection,
-    })),
-  { ssr: true },
-);
-const EducationSection = dynamic(
-  () =>
-    import("@/components/sections/education-section").then((m) => ({
-      default: m.EducationSection,
-    })),
-  { ssr: true },
-);
-const HobbiesSection = dynamic(
-  () =>
-    import("@/components/sections/hobbies-section").then((m) => ({
-      default: m.HobbiesSection,
-    })),
-  { ssr: true },
-);
-const ContactSection = dynamic(
-  () =>
-    import("@/components/sections/contact-section").then((m) => ({
-      default: m.ContactSection,
-    })),
-  { ssr: true },
-);
+import { IntroductionSection } from "@/components/sections/introduction-section";
+import { CodeProfileSection } from "@/components/sections/code-profile-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { SkillsSection } from "@/components/sections/skills-section";
+import { EducationSection } from "@/components/sections/education-section";
+import { HobbiesSection } from "@/components/sections/hobbies-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
   return (

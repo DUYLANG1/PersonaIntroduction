@@ -1,27 +1,21 @@
-"use client";
-import { motion } from "framer-motion";
 import { education } from "@/lib/data";
 import { GlowCard } from "@/components/common/glow-card";
 import { GraduationCap } from "lucide-react";
 import { AnimationLottie } from "@/components/common/animation-lottie-lazy";
+import { AnimateIn } from "@/components/common/animate-in";
 
 import { SectionHeader } from "@/components/common/section-header";
 
 export function EducationSection() {
   return (
     <section className="py-12 md:py-20 lg:py-20 bg-muted/30" id="education">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+      <AnimateIn>
         <SectionHeader
           title="Education"
           icon={GraduationCap}
           className="max-w-3xl mx-auto"
         />
-      </motion.div>
+      </AnimateIn>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         <div className="order-1 md:order-1 flex justify-center">
@@ -38,12 +32,7 @@ export function EducationSection() {
                 key={education.id}
                 className="p-5 md:p-6 relative overflow-hidden"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                >
+                <AnimateIn delay={index * 50}>
                   <p className="text-xs md:text-sm gradient-text-primary font-semibold mb-2">
                     {education.period}
                   </p>
@@ -61,7 +50,7 @@ export function EducationSection() {
                       {education.focus}
                     </p>
                   )}
-                </motion.div>
+                </AnimateIn>
               </GlowCard>
             ))}
           </div>

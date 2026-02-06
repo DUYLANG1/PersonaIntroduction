@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 import { Moon, Sun, Loader2 } from "lucide-react";
@@ -117,12 +116,9 @@ export function Navigation() {
                 }
               }}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="font-bold text-2xl cursor-pointer px-2 py-1 flex items-center gradient-text-primary tracking-tight"
-              >
+              <div className="font-bold text-2xl cursor-pointer px-2 py-1 flex items-center gradient-text-primary tracking-tight hover:scale-105 transition-transform duration-200">
                 DUYLANG
-              </motion.div>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -172,15 +168,7 @@ export function Navigation() {
                     }`}
                   >
                     {activeSection === section && (
-                      <motion.span
-                        layoutId="activeSection"
-                        className="absolute inset-0 bg-gradient-primary/20 rounded-lg"
-                        transition={{
-                          type: "spring",
-                          bounce: 0.2,
-                          duration: 0.6,
-                        }}
-                      />
+                      <span className="absolute inset-0 bg-gradient-primary/20 rounded-lg transition-all duration-300" />
                     )}
                     <span className="relative z-10">{section}</span>
                   </button>
@@ -231,13 +219,8 @@ export function Navigation() {
         </div>
 
         {/* Mobile Navigation Menu */}
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{
-            height: isNavigating ? "auto" : 0,
-            opacity: isNavigating ? 1 : 0,
-          }}
-          className="md:hidden overflow-hidden"
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isNavigating ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
         >
           <div className="py-4 space-y-2 bg-background/95 backdrop-blur-xl rounded-2xl border border-white/10 mt-2 p-4 shadow-xl">
             <button
@@ -261,7 +244,7 @@ export function Navigation() {
               Projects
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </nav>
   );

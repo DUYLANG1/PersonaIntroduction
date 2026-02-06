@@ -370,4 +370,79 @@ html {
   .btn-primary-enhanced:hover::before {
     left: 100%;
   }
+
+  /* ============================================
+     CSS SCROLL ANIMATIONS (replaces framer-motion)
+     ============================================ */
+  .animate-base {
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  /* fade-up */
+  .animate-fade-up-initial {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-fade-up-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* fade-in */
+  .animate-fade-in-initial {
+    opacity: 0;
+  }
+
+  .animate-fade-in-active {
+    opacity: 1;
+  }
+
+  /* scale-in */
+  .animate-scale-in-initial {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .animate-scale-in-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* fade-left */
+  .animate-fade-left-initial {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .animate-fade-left-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* fade-right */
+  .animate-fade-right-initial {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .animate-fade-right-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   CSS MARQUEE ANIMATION
+   ============================================ */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
