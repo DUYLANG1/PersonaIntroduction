@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Use lottie-web light build (SVG renderer only) to reduce bundle ~137KB
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "lottie-web": "lottie-web/build/player/lottie_light.min.js",
+    };
+    return config;
+  },
 };
 
 export default nextConfig;

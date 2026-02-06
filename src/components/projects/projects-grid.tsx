@@ -41,7 +41,7 @@ export function ProjectsGrid() {
       <main className="relative pt-32 pb-24 px-4">
         <div className="max-w-6xl mx-auto">
           <ProjectsHeader
-            title="All Projects"
+            title="Some Projects"
             description="A curated selection of things I've built, experimented with, and shipped. Each project represents a journey of learning and creativity."
             lottieIcon="/assets/lottie/projects.json"
             stats={{
@@ -89,9 +89,9 @@ export function ProjectsGrid() {
                   )}
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                      <h2 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors duration-300">
                         {project.title}
-                      </h3>
+                      </h2>
                     </div>
 
                     <p className="text-muted-foreground flex-1 mb-6 leading-relaxed">
@@ -139,6 +139,25 @@ export function ProjectsGrid() {
                 </GlowCard>
               </div>
             ))}
+          </div>
+
+          {/* My Github Repository Link */}
+          <div
+            className="mt-16 text-center animate-base animate-fade-up-active"
+            style={{ transitionDelay: `${projects.length * 100 + 100}ms` }}
+          >
+            <a
+              href="https://github.com/DUYLANG1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 group"
+            >
+              <GitHubIcon className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="relative">
+                My Github Repository
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300" />
+              </span>
+            </a>
           </div>
         </div>
       </main>

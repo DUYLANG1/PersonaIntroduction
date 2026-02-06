@@ -83,6 +83,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={theme === "dark" ? "dark" : ""}>
+      <head>
+        <link
+          rel="preload"
+          href="/assets/lottie/header.json"
+          as="fetch"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

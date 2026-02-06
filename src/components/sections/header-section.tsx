@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { AnimationLottie } from "../common/animation-lottie-lazy";
+import { AnimationLottieEager } from "../common/animation-lottie-eager";
 
 const TypeAnimation = dynamic(
   () =>
@@ -25,7 +25,7 @@ export function HeaderSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Lottie Animation - First on mobile, right side on desktop */}
         <div className="order-1 md:order-2 flex justify-center items-center">
-          <AnimationLottie src="/assets/lottie/header.json" width="60%" loop />
+          <AnimationLottieEager src="/assets/lottie/header.json" width="60%" loop />
         </div>
 
         <div className="order-2 md:order-1">

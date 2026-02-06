@@ -18,7 +18,7 @@ const SKILLS: Skill[] = [
   { name: "Expressjs", icon: "expressjs.svg" },
   { name: "Nestjs", icon: "nestjs.svg" },
   { name: "SQL", icon: "mysql.svg" },
-  { name: "NoSQL", icon: "mongodb.svg" },
+  { name: "NoSQL", icon: "mongoDB.svg" },
   { name: "Git", icon: "git.svg" },
   { name: "Docker", icon: "docker.svg" },
   { name: "Tailwind", icon: "tailwind.svg" },
