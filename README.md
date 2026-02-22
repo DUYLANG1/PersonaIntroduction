@@ -4,10 +4,10 @@ A modern, responsive portfolio website built with Next.js 15, shadcn/ui, and Tai
 
 ## 🚀 Tech Stack
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS v4 with shadcn/ui components
+- **Framework**: Next.js latest version App Router
+- **Styling**: Tailwind CSS v4
 - **UI Components**: Radix UI primitives
-- **Animations**: Framer Motion
+- **Animations**: Framer Motion and custom
 - **TypeScript**: Full type safety
 - **Icons**: Lucide React
 - **Package Manager**: pnpm
@@ -16,8 +16,8 @@ A modern, responsive portfolio website built with Next.js 15, shadcn/ui, and Tai
 
 - **Responsive Design**: Optimized for all device sizes
 - **Dark/Light Mode**: Toggle between themes
-- **Smooth Animations**: Framer Motion powered interactions
-- **Modern UI**: shadcn/ui components with clean design
+- **Smooth Animations**: css interactions
+- **Modern UI**: mordern design
 - **SEO Optimized**: Next.js optimization features
 - **Fast Loading**: Turbopack for development and optimized builds
 - **Type Safe**: Full TypeScript implementation
@@ -58,7 +58,7 @@ src/
 │   ├── layout.tsx          # Root layout
 │   └── page.tsx            # Home page
 ├── components/
-│   ├── ui/                 # shadcn/ui components
+│   ├── common/             # common resuable
 │   ├── layout/             # Layout components
 │   │   └── navigation.tsx  # Navigation bar
 │   └── sections/           # Page sections
@@ -79,16 +79,7 @@ The portfolio uses a neutral color scheme that can be customized in `globals.css
 
 ### Content
 
-Update your personal information in:
-
-- `src/components/sections/hero-section.tsx` - About information
-- `src/components/sections/experience-section.tsx` - Work experience
-- `src/components/sections/skills-section.tsx` - Skills and technologies
-- `src/components/sections/contact-section.tsx` - Contact links
-
-### Avatar
-
-Replace `public/avatar.svg` with your own profile image.
+Update your personal information
 
 ## 🚀 Deployment
 
@@ -109,29 +100,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 ## 📱 Sections Overview
 
-### Hero Section
-
-- Professional introduction
-- Animated profile avatar
-- Key skills highlight
-
-### Experience Section
-
-- Work history with companies
-- Position titles and dates
-- Current/past job indicators
-
-### Skills Section
-
-- Categorized technology skills
-- Interactive skill cards
-- Animated skill showcase
-
-### Contact Section
-
-- Social media links
-- Professional contact information
-- Location information
+declarative with name of sections
 
 ## 🛠 Development
 
@@ -140,21 +109,6 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 1. Create a new component in `src/components/sections/`
 2. Import and add to `src/app/page.tsx`
 3. Add navigation link in `src/components/layout/navigation.tsx`
-
-### Adding New UI Components
-
-```bash
-# Add shadcn/ui components
-npx shadcn@latest add [component-name]
-```
-
-## 📋 Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-- `pnpm lint:fix` - Fix ESLint issues
 
 ## 🤝 Contributing
 
@@ -169,12 +123,5 @@ npx shadcn@latest add [component-name]
 This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com/) for the beautiful components
-- [Radix UI](https://www.radix-ui.com/) for accessible primitives
-- [Framer Motion](https://www.framer.com/motion/) for smooth animations
-- [Lucide](https://lucide.dev/) for the icon set
-
----
 
 Built with ❤️ by DUYLANG
